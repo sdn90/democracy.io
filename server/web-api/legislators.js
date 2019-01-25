@@ -39,6 +39,7 @@ expressRouter.get("/legislators/findByDistrict", async (req, res) => {
     bioguideIds
   );
 
+<<<<<<< HEAD
   // note: it is possible that POTC won't have data on a legislator
   const augmentedLegislators = bioguideIds.map((id, index) => {
     const formElementsData = formElementsRes.data;
@@ -69,6 +70,23 @@ expressRouter.get("/legislators/findByDistrict", async (req, res) => {
   );
 
   res.json(resHelpers.makeResponse(augmentedLegislatorModels));
+=======
+  var augmentedLegislators = legislators
+    .map(legislator => {
+      var legislatorData = formElementsRes.data[legislator.bioguideId];
+
+      return {
+        ...legislator,
+        defunct: _.isUndefined(legislatorData.defunct)
+          ? false
+          : legislatorData.defunct,
+        contact_url: legislatorData.contact_url
+      };
+    })
+    .map(l => new Legislator(l));
+
+  res.json(resHelpers.makeResponse(augmentedLegislators));
+>>>>>>> master
 });
 
 /**
