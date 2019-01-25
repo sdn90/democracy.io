@@ -45,9 +45,6 @@ app.use(require("./legislator"));
 app.use(require("./legislators"));
 app.use(require("./location"));
 app.use(require("./subscription"));
-<<<<<<< HEAD
 app.use(require("./exception"));
-=======
->>>>>>> master
 
 module.exports = app;

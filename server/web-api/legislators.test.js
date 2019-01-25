@@ -77,7 +77,6 @@ describe("routes.api.legislators", function() {
 
     const fixtureBioguideIds = DIOLegislatorsFixture.map(l => l.bioguideId);
     expect(mockGetFormElements).toHaveBeenCalledWith(fixtureBioguideIds);
-<<<<<<< HEAD
     expect(res.body.data).toHaveLength(3);
 
     const leg1 = _.find(res.body.data, {
@@ -147,22 +146,5 @@ describe("routes.api.legislators", function() {
       l => l.bioguideId === DIOLegislatorsFixture[1].bioguideId
     );
     expect(missingLegislatorInResponse).toHaveProperty("comingSoon", true);
-=======
-
-    expect(res.body.data).toContainEqual({
-      ..._.omit(DIOLegislatorsFixture[0], ["chamber"]),
-      defunct: true
-    });
-
-    expect(res.body.data).toContainEqual({
-      ..._.omit(DIOLegislatorsFixture[1], ["chamber"]),
-      defunct: false
-    });
-
-    expect(res.body.data).toContainEqual({
-      ..._.omit(DIOLegislatorsFixture[2], ["chamber"]),
-      defunct: false
-    });
->>>>>>> master
   });
 });

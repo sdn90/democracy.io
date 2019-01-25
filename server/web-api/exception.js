@@ -6,11 +6,7 @@ var apiHelpers = require("./helpers/api");
 var models = require("../../models");
 const router = require("express").Router();
 
-<<<<<<< HEAD:server/web-api/exception.js
 router.post("/exception", function(req, res) {
-=======
-router.get("exception", function(req, res) {
->>>>>>> master:server/web-api/exception.js
   var exception = apiHelpers.getModelData(req.body, models.NgException);
   console.log(exception);
 
